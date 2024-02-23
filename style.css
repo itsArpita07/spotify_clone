@@ -20,34 +20,14 @@ html {
     padding: 20px;
 }
 
-.navigation ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-.navigation a {
-    display: block;
-    color: #fff;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: 0.3s ease;
-}
-
-.navigation a:hover {
-    background-color: #1DB954;
-}
-
-.navigation a span {
-    margin-right: 10px;
-}
-
+.navigation ul,
 .fav ul {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
 
+.navigation a,
 .fav a {
     display: block;
     color: #fff;
@@ -56,10 +36,12 @@ html {
     transition: 0.3s ease;
 }
 
+.navigation a:hover,
 .fav a:hover {
-    background-color: green;
+    background-color: #1DB954;
 }
 
+.navigation a span,
 .fav a span {
     margin-right: 10px;
 }
@@ -67,17 +49,13 @@ html {
 .main-container {
     margin-left: 250px;
     padding: 20px;
-    background-color:gray;
+    background-color: gray;
     position: absolute;
     top: 0;
     left: 250px;
     width: calc(100% - 250px);
     height: 100vh;
     overflow-y: auto;
-}
-
-.spotify-playlists {
-    margin-bottom: 40px;
 }
 
 .spotify-playlists h2 {
@@ -87,15 +65,17 @@ html {
 .list {
     display: flex;
     flex-wrap: wrap;
+    gap: 20px; /* Added gap property */
+    justify-content: space-between; /* Distribute items evenly */
 }
 
 .item {
-    flex-basis: calc(33.33% - 20px);
-    margin: 10px;
+    flex: 0 0 calc(33.33% - 20px); /* Adjusted flex basis to fit 3 items in a row */
     background-color: #282828;
     border-radius: 10px;
     overflow: hidden;
     position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .item img {
@@ -132,68 +112,71 @@ html {
     padding: 10px;
     margin: 0;
     color: #fff;
+    text-align: center; /* Center text within items */
+}
+
+.custom-icon img {
+    width: 20px;
+    height: 20px;
 }
 
 .shows-container {
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    gap: 20px; /* Added gap property for spacing between items */
+    justify-content: space-between; /* Distribute items evenly */
 }
 
 .item {
-    flex: 0 0 calc(33.33% - 20px);
-    margin: 10px;
+    flex: 0 0 calc(33.33% - 20px); /* Adjusted flex basis to fit 3 items in a row */
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.item img {
+    max-width: 100%;
+}
+
+.item h4,
+.item p {
+    margin: 0;
+    text-align: center; /* Center text within items */
+}
+
+/* Media Query for smaller screens */
 @media (max-width: 768px) {
+    .list {
+        justify-content: center; /* Center items on smaller screens */
+    }
+
     .item {
-        flex-basis: calc(50% - 20px);
+        flex-basis: calc(50% - 20px); /* Adjusted flex basis for 2 items in a row on smaller screens */
+    }
+
+    .shows-container {
+        justify-content: center; /* Center items on smaller screens */
     }
 }
 
-.custom-icon img {
-    width: 20px;
-    height: 20px; 
-}
+@media (max-width: 576px) {
+    .sidebar {
+        width: 200px; /* Adjusted sidebar width for smaller screens */
+    }
 
-.navigation a {
-    display: flex;
-    align-items: center;
-    color: white;
-    text-decoration: none;
-    padding: 10px 20px;
-    transition: 0.3s ease;
-}
+    .main-container {
+        margin-left: 200px; /* Adjusted main container margin for smaller screens */
+        width: calc(100% - 200px);
+    }
 
-.navigation a:hover {
-    background-color: #1DB954;
-}
+    .logo img {
+        width: 120px; /* Adjusted logo size for smaller screens */
+        padding: 15px; /* Adjusted logo padding for smaller screens */
+    }
 
-
-.shows-container {
-    display: flex;
-    flex-wrap: wrap; 
-    gap: 20px; 
-}
-
-
-.item {
-    width: 200px; 
-    padding: 10px; 
-    border: 1px solid #ddd; 
-    text-align: center; 
-}
-
-
-.item img {
-    max-width: 100%; 
-}
-
-
-.item h4, .item p {
-    margin: 0; 
+    .navigation a,
+    .fav a {
+        padding: 10px 15px; /* Adjusted padding for smaller screens */
+    }
 }
